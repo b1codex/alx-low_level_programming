@@ -1,4 +1,4 @@
-#include "_putchar.c"
+#include "main.h"
 /**
  * main - Print "_putchar" followed by a new line.
  * Description: You are not allowed to include standard libraries.
@@ -6,12 +6,12 @@
  */
 int main(void)
 {
-	char 0-putchar[] = "_putchar";
+	char putchar[] = "_putchar";
 	int i = 0;
 
-	while (0-putchar[i] != '\0')
+	while (putchar[i] != '\0')
 	{
-		_putchar(0-putchar[i]);
+		_putchar(putchar[i]);
 		i++;
 	}
 	_putchar('\n');
