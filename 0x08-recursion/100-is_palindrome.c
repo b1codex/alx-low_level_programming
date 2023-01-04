@@ -1,47 +1,47 @@
-#include "main.h"
-
-int check_pal(char *s, int i, int len);
-int _strlen_recursion(char *s);
-
+#include "holberton.h"
 /**
- * * is_palindrome - checks if a string is a palindrome
- * * @s: string to reverse
- * *
- * * Return: 1 if it is, 0 it's not
- * */
+ * _comparacadena - compare two strings
+ *
+ * @s: first part of string
+ * @p: last part of the string
+ * Return: 0 if not and 1 if equal
+ */
+int _comparacadena(char *s, char *p)
+{
+	if (*s == '\0')
+		return (1);
+	if (*s == *p)
+		return (_comparacadena(++s, --p));
+	else
+		return (0);
+}
+/**
+ * _ultima - this reverse the string to see if is the same
+ *
+ * @s: char pointer to check
+ *
+ * Return: return to the pointer in reverse
+ *
+ */
+char *_ultima(char *s)
+{
+	if (*s != '\0')
+		return (_ultima(++s));
+	else
+		return (--s);
+}
+/**
+ * is_palindrome - the given function reeturning extra functions
+ * _ultima - this will reverse the string
+ *
+ * @s: char pointer to check
+ *
+ * Return: 1 if is palindrome 0 if is not
+ */
 int is_palindrome(char *s)
 {
-		if (*s == 0)
-					return (1);
-			return (check_pal(s, 0, _strlen_recursion(s)));
-}
+	char *p;
 
-/**
- * * _strlen_recursion - returns the length of a string
- * * @s: string to calculate the length of
- * *
- * * Return: length of the string
- * */
-int _strlen_recursion(char *s)
-{
-		if (*s == '\0')
-					return (0);
-			return (1 + _strlen_recursion(s + 1));
-}
-
-/**
- * * check_pal - checks the characters recursively for palindrome
- * * @s: string to check
- * * @i: iterator
- * * @len: length of the string
- * *
- * * Return: 1 if palindrome, 0 if not
- * */
-int check_pal(char *s, int i, int len)
-{
-		if (*(s + i) != *(s + len - 1))
-					return (0);
-			if (i >= len)
-						return (1);
-				return (check_pal(s, i + 1, len - 1));
+	p = _ultima(s);
+	return (_comparacadena(s, p));
 }
